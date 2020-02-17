@@ -1,10 +1,14 @@
-Возведение в степень
+Быстрое возведение в степень
 
-def power(a, n):
+def rec(b, n):
     if n == 0:
         return 1
+    if n % 2 == 0:
+        return rec(b * b, n / 2)
     else:
-        return a * power(a, n - 1)
+        return b * rec(b, n - 1)
 
 
-print(power(float(input()), int(input())))
+b, n = float(input()), int(input())
+
+print(rec(b, n))
